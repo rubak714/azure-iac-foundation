@@ -18,3 +18,9 @@
 > This is not a generated walkthrough. This is me learning in public and proving it.
 
 ---
+
+> **Status:** In progress. I am currently studying full time for **AZ-104 and CompTIA Security+**.
+> I build this project in parallel with my studies, module by module.
+> The commit history reflects the real pace of that work.
+
+---
