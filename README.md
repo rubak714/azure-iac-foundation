@@ -93,3 +93,19 @@ graph LR
 | **4. Guardrails** | 📅 Planned | Tag policy, location policy, PowerShell verification script |
 
 ---
+
+## ☁️ What is in this repository
+
+| File or folder | What it is |
+| :--- | :--- |
+| `docs/01-NAMING-CONVENTION.md` | Source of truth for every resource name in this project |
+| `docs/02-TAGGING-POLICY.md` | The seven mandatory tags and why each one exists |
+| `bicep/main.bicep` | Subscription-scope entry point for the whole deployment |
+| `bicep/modules/log-analytics.bicep` | Bicep module for the central Log Analytics workspace |
+| `bicep/modules/key-vault.bicep` | Bicep module for Key Vault with soft delete enabled |
+| `bicep/modules/custom-role-l2.json` | Custom RBAC role definition for L2 helpdesk operators |
+| `policies/` | Azure Policy definitions for tag enforcement and location restriction |
+| `scripts/Verify-Foundation.ps1` | PowerShell health check script with PASS/FAIL output |
+| `screenshots/` | Visual evidence from each module |
+
+---
