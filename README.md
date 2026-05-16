@@ -37,3 +37,38 @@ They have been running on an old on-premises Windows Server for years and are no
 **What I am doing instead:** Building the foundation first.
 
 > Clean resource group structure. Naming convention. Mandatory tags. RBAC with least privilege. Azure Policy guardrails. All of it in **Bicep** so it deploys with one command, *not a hundred portal clicks*.
+
+---
+
+## ☁️ What I am building
+
+Here is the full picture of what this foundation looks like when all four modules are done.
+
+```mermaid
+graph TD
+    SUB["🔷 Azure Subscription"]
+
+    subgraph GOV["Governance Layer"]
+        POL1["📋 Policy: Require CostCenter tag\nDeny mode - blocks untagged resources"]
+        POL2["📋 Policy: Allowed locations\nGermany West Central only"]
+    end
+
+    subgraph RG["📦 rg-shared-prod-gwc-001\nGermany West Central - Frankfurt"]
+        LOG["📊 Log Analytics Workspace\nlog-shared-prod-gwc-001"]
+        KV["🔑 Key Vault\nkv-shared-prod-gwc-001\nSoft delete: ON"]
+    end
+
+    subgraph RBAC["Identity and Access"]
+        R1["👤 Reader - Subscription scope"]
+        R2["🔧 Contributor - RG scope"]
+        R3["🎫 Custom role: L2 Helpdesk Operator\nRead and restart only. Cannot delete."]
+    end
+
+    SUB --> GOV
+    SUB --> RG
+    SUB --> RBAC
+    RG --> LOG
+    RG --> KV
+```
+
+---
