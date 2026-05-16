@@ -1,0 +1,9 @@
+*.log
+*.tmp
+.DS_Store
+.vscode/
+*.publishsettings
+__pycache__/
+.env
+*.bicepparam
+.azure/
