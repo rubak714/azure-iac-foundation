@@ -72,3 +72,24 @@ graph TD
 ```
 
 ---
+
+## ☁️ How I am building it
+
+Four modules. Building them one at a time.
+
+```mermaid
+graph LR
+    M1["🟦 Module 1\nFoundation\nNaming and tagging\nFirst resource group"] -->
+    M2["🟦 Module 2\nShared Services\nLog Analytics\nKey Vault in Bicep"] -->
+    M3["🟦 Module 3\nAccess Control\nBuilt-in RBAC roles\nCustom L2 role"] -->
+    M4["🟦 Module 4\nGuardrails\nAzure Policy\nVerification script"]
+```
+
+| Module | Status | What gets built |
+| :--- | :--- | :--- |
+| **1. Foundation** | 🔄 In progress | Subscription audit, naming convention, first resource group with full tag set |
+| **2. Shared Services** | 📅 Planned | Bicep modules for Log Analytics workspace and Key Vault |
+| **3. Access Control** | 📅 Planned | Built-in roles at correct scopes plus one custom L2 helpdesk role |
+| **4. Guardrails** | 📅 Planned | Tag policy, location policy, PowerShell verification script |
+
+---
