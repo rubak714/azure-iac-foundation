@@ -24,3 +24,16 @@
 > The commit history reflects the real pace of that work.
 
 ---
+
+## ☁️ What is this project
+
+**The company:** Hessler Logistik GmbH. Fictional. 30 people. Freight forwarding. Frankfurt.
+They have been running on an old on-premises Windows Server for years and are now moving their first workloads to Azure.
+
+**The role I am playing:** Junior cloud admin. Hired to set up the foundation before anyone else deploys anything.
+
+**The problem:** Most tutorials skip this part. They jump straight to deploying VMs and databases because that is more exciting to watch. But skipping the foundation is exactly *what causes runaway costs, audit failures, and naming chaos six months later*.
+
+**What I am doing instead:** Building the foundation first.
+
+> Clean resource group structure. Naming convention. Mandatory tags. RBAC with least privilege. Azure Policy guardrails. All of it in **Bicep** so it deploys with one command, *not a hundred portal clicks*.
