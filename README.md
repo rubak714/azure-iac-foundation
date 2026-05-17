@@ -258,3 +258,23 @@ I wrote this before creating a single resource. It is the source of truth for ev
 The full specification is in [docs/01-NAMING-CONVENTION.md](docs/01-NAMING-CONVENTION.md).
 
 ---
+
+### 🟦 Step 3: Define the mandatory tags
+
+Every resource in this project gets these seven tags at the moment it is created. Not after. At creation. That is a rule I set for myself and I do not break it.
+
+| Tag | Example value | Why it is there |
+| :--- | :--- | :--- |
+| `CostCenter` | `IT-001` | Finance needs to break down the Azure bill by department. Without this tag, that is not possible. |
+| `Environment` | `Production` | Lifecycle automation needs to know which resources are safe to shut down at night. |
+| `Workload` | `Shared` | Groups resources across resource groups for cross-project reports. |
+| `Owner` | `cloud-team@hessler-logistik.de` | When something breaks at 2am, someone needs to get alerted. This is who. |
+| `ManagedBy` | `Manual` or `Bicep` | Tells any operator whether it is safe to delete this resource by hand, or whether that will break a deployment pipeline. |
+| `CreatedBy` | My user principal name from Azure | Audit trail. Who created this resource? |
+| `CreatedDate` | `2026-05-16` | When was this created? Six months later, nobody remembers. |
+
+The `ManagedBy` tag is one I added myself. I have not seen it in any tutorial. But it solves a real problem: how does a new team member know which resources they can safely remove? This tag answers that immediately.
+
+This first resource group gets `ManagedBy=Manual` because I am creating it by hand as a one-time bootstrap step. From Module 2 onwards, everything deployed via Bicep gets `ManagedBy=Bicep`.
+
+---
