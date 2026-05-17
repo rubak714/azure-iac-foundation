@@ -220,6 +220,6 @@ az ad signed-in-user show `
 ```
 
 ![Signed-in user details confirmed](screenshots/module01-signed-in-user-08.png)
-*Signed-in user details confirmed. Email and object ID are cropped because they are sensitive. Object ID saved locally for use in Module 3.*
+*Signed-in user details confirmed. Email and object ID are hided because they are sensitive. Object ID saved locally for use in Module 3.*
 
 ---
