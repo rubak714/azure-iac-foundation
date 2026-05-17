@@ -223,3 +223,38 @@ az ad signed-in-user show `
 *Signed-in user details confirmed. Email and object ID are hided because they are sensitive. Object ID saved locally for use in Module 3.*
 
 ---
+
+### 🟦 Step 2: Write the naming convention before creating anything
+
+This is the document most people skip. It is also the document that saves everyone time six months later when nobody can figure out what `temp-rg-v2-final` does.
+
+I wrote this before creating a single resource. It is the source of truth for every name in this project.
+
+**The pattern:**
+
+```
+<resource-type>-<workload>-<environment>-<region>-<instance>
+```
+
+| Token | Values I am using |
+| :--- | :--- |
+| resource-type | `rg`, `vnet`, `snet`, `vm`, `kv`, `log`, `nsg`, `pip` |
+| workload | `shared`, `freight`, `web`, `identity` |
+| environment | `dev`, `test`, `prod`, `sandbox` |
+| region | `gwc` for Frankfurt, `gn` for Berlin |
+| instance | `001`, `002`, and so on |
+
+**Examples from this project:**
+
+| Resource | Name |
+| :--- | :--- |
+| Shared services resource group | `rg-shared-prod-gwc-001` |
+| Log Analytics workspace | `log-shared-prod-gwc-001` |
+| Key Vault | `kv-shared-prod-gwc-001` |
+| Future production VM | `vm-freight-prod-gwc-001` |
+
+**Storage accounts are an exception.** Azure requires them to be globally unique, all lowercase, no hyphens, between 3 and 24 characters. I use this pattern for them: `st` + workload + environment + `gwc` + 4 random characters. Example: `stsharedprodgwc7a2b`.
+
+The full specification is in [docs/01-NAMING-CONVENTION.md](docs/01-NAMING-CONVENTION.md).
+
+---
