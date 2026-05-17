@@ -110,7 +110,7 @@ graph LR
 
 ---
 
-# ☁️ Module 1 — Foundation: naming, tagging, first resource group
+# ☁️ Module 1 - Foundation: naming, tagging, first resource group
 
 Before any Azure resource exists, I want a naming convention written down, mandatory tags defined, and the first resource group created the right way. Everything else builds on top of this.
 
