@@ -125,3 +125,69 @@ graph LR
 ```
 
 ---
+
+### 🟦 Step 0: Install the tools and set up the repo
+
+Before writing any Azure commands, I made sure the tools were installed and the GitHub repo was ready.
+
+**Installing the tools:**
+
+```powershell
+winget install Microsoft.AzureCLI
+winget install Microsoft.Bicep
+winget install GitHub.cli
+winget install Git.Git
+winget install Microsoft.PowerShell
+```
+
+> 📸 **Screenshot:** `screenshots/module01-downloading-01.png`
+>
+> *Downloading and installing the required tools via winget.*
+
+After installing, I closed and reopened PowerShell so the PATH refreshed, then verified every tool responded correctly:
+
+```powershell
+az version
+az bicep version
+gh --version
+git --version
+$PSVersionTable.PSVersion
+```
+
+> 📸 **Screenshot:** `screenshots/module01-version-checking-02.png`
+>
+> *All five tools confirmed installed and returning version numbers. Azure CLI, Bicep, gh CLI, Git, and PowerShell 7 all present.*
+
+Then signed in to Azure:
+
+```powershell
+az login
+```
+
+> 📸 **Screenshot:** `screenshots/module01-az-login-cli-03.png`
+>
+> *Signed in to Azure via browser. CLI confirmed the account and active subscription.*
+
+**Creating the GitHub repo and folder structure:**
+
+```powershell
+gh repo create azure-iac-foundation --public `
+  --description "Azure landing zone foundation for a German SME with Bicep, RBAC, Azure Policy and verification. AZ-104 aligned."
+
+git clone https://github.com/rubak714/azure-iac-foundation.git
+cd azure-iac-foundation
+
+New-Item -ItemType Directory -Path `
+  bicep, bicep\modules, scripts, docs, screenshots, `
+  policies, .github\ISSUE_TEMPLATE | Out-Null
+```
+
+> 📸 **Screenshot:** `screenshots/module01-github-repo-creation-05.png`
+>
+> *GitHub repo created via gh CLI. Public, with description set.*
+
+> 📸 **Screenshot:** `screenshots/module01-github-repo-structure-06.png`
+>
+> *Folder structure created locally. All seven directories visible.*
+
+---
