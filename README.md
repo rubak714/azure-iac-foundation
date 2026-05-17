@@ -186,3 +186,40 @@ New-Item -ItemType Directory -Path `
 *Folder structure created locally. All seven directories visible.*
 
 ---
+
+### 🟦 Step 1: Verify the correct subscription is active
+
+The most common mistake new Azure admins make is running commands in the wrong subscription. Then they spend an hour wondering where their resources went.
+
+I check this every single session before doing anything else.
+
+```powershell
+az account show --output table
+```
+
+![Confirmed correct subscription is active](screenshots/module01-az-subscription-checking-cli-04.png)
+*Confirmed the correct subscription is active before creating anything. Subscription name and state are visible. Tenant ID and subscription ID are cropped because they are sensitive.*
+
+Then I checked which German regions Azure offers. Hessler Logistik is a German company. DSGVO requires that data stays inside the European Union. Germany West Central in Frankfurt is the primary region for this project because it has a wider service catalogue than Germany North in Berlin.
+
+```powershell
+az account list-locations `
+  --query "[?contains(name, 'germany')].{Name:name, DisplayName:displayName}" `
+  --output table
+```
+
+![Two German Azure regions shown](screenshots/module01-germany-regions-check-07.png)
+*Two German Azure regions shown: Germany West Central (Frankfurt) and Germany North (Berlin). Frankfurt is the primary choice for this project.*
+
+I also captured my signed-in user details at this point. The object ID from this output is needed later in Module 3 for RBAC assignments. I saved it in a local note and did not commit it to the repo.
+
+```powershell
+az ad signed-in-user show `
+  --query "{id:id, mail:mail, displayName:displayName, upn:userPrincipalName}" `
+  --output json
+```
+
+![Signed-in user details confirmed](screenshots/module01-signed-in-user-08.png)
+*Signed-in user details confirmed. Email and object ID are cropped because they are sensitive. Object ID saved locally for use in Module 3.*
+
+---
