@@ -109,3 +109,19 @@ graph LR
 | `screenshots/` | Visual evidence from each module |
 
 ---
+
+# ☁️ Module 1 — Foundation: naming, tagging, first resource group
+
+Before any Azure resource exists, I want a naming convention written down, mandatory tags defined, and the first resource group created the right way. Everything else builds on top of this.
+
+Here is what this module does from start to finish:
+
+```mermaid
+graph LR
+    A["💻 Local machine\nAzure CLI ready"] -->|az login| B["🔐 Subscription\nverified active"]
+    B -->|naming convention written| C["📄 docs/01-NAMING-CONVENTION.md\nSource of truth"]
+    C -->|az group create| D["📦 rg-shared-prod-gwc-001\nGermany West Central"]
+    D -->|7 tags applied at creation| E["🏷️ CostCenter, Environment,\nWorkload, Owner,\nManagedBy, CreatedBy,\nCreatedDate"]
+```
+
+---
