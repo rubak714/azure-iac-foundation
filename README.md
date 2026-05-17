@@ -27,14 +27,14 @@
 
 ## ☁️ What is this project
 
-**The company:** Hessler Logistik GmbH. Fictional. 30 people. Freight forwarding. Frankfurt.
+☁️ **The company:** Hessler Logistik GmbH. Fictional. 30 people. Freight forwarding. Frankfurt.
 They have been running on an old on-premises Windows Server for years and are now moving their first workloads to Azure.
 
-**The role I am playing:** Junior cloud admin. Hired to set up the foundation before anyone else deploys anything.
+☁️ **The role I am playing:** Junior cloud admin. Hired to set up the foundation before anyone else deploys anything.
 
-**The problem:** Most tutorials skip this part. They jump straight to deploying VMs and databases because that is more exciting to watch. But skipping the foundation is exactly *what causes runaway costs, audit failures, and naming chaos six months later*.
+☁️ **The problem:** Most tutorials skip this part. They jump straight to deploying VMs and databases because that is more exciting to watch. But skipping the foundation is exactly *what causes runaway costs, audit failures, and naming chaos six months later*.
 
-**What I am doing instead:** Building the foundation first.
+☁️ **What I am doing instead:** Building the foundation first.
 
 > Clean resource group structure. Naming convention. Mandatory tags. RBAC with least privilege. Azure Policy guardrails. All of it in **Bicep** so it deploys with one command, *not a hundred portal clicks*.
 
@@ -330,11 +330,11 @@ I opened portal.azure.com, navigated to the resource group, and clicked the Tags
 
 Nothing here was technically hard. But a few things became clearer to me while doing it.
 
-**The CostCenter tag matters more than it looks.** Finance teams ask for cost-by-department reports within the first three months of any cloud project. Without that tag on every resource from day one, the only way to produce that report is to go through every resource manually and classify it. Nobody has time for that.
+☁️ **The CostCenter tag matters more than it looks.** Finance teams ask for cost-by-department reports within the first three months of any cloud project. Without that tag on every resource from day one, the only way to produce that report is to go through every resource manually and classify it. Nobody has time for that.
 
-**The ManagedBy tag solves a real problem.** I added this one myself. It tells any operator whether a resource is safe to delete by hand or not. That question comes up constantly in real teams and there is usually no easy answer. This tag makes the answer visible immediately.
+☁️ **The ManagedBy tag solves a real problem.** I added this one myself. It tells any operator whether a resource is safe to delete by hand or not. That question comes up constantly in real teams and there is usually no easy answer. This tag makes the answer visible immediately.
 
-**Writing the naming convention first feels slow.** It is not. The alternative is a six-month-old subscription full of resources nobody can identify. That takes far more time to clean up than writing a two-page spec at the start.
+☁️ **Writing the naming convention first feels slow.** It is not. The alternative is a six-month-old subscription full of resources nobody can identify. That takes far more time to clean up than writing a two-page spec at the start.
 
 ---
 
