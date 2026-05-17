@@ -337,3 +337,11 @@ Nothing here was technically hard. But a few things became clearer to me while d
 **Writing the naming convention first feels slow.** It is not. The alternative is a six-month-old subscription full of resources nobody can identify. That takes far more time to clean up than writing a two-page spec at the start.
 
 ---
+
+### 🟦 Issues resolved in Module 1
+
+| Issue | Title | Type |
+| :--- | :--- | :--- |
+| [#1](../../issues/1) | Module 1: naming convention and first resource group | Enhancement |
+
+---
