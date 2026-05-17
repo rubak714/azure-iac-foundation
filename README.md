@@ -325,3 +325,15 @@ I opened portal.azure.com, navigated to the resource group, and clicked the Tags
 *Tags panel in the Azure portal showing all seven tags. This is the screenshot that proves the work was done. A portal tags panel cannot be faked.*
 
 ---
+
+### 🟦 What I learned in Module 1
+
+Nothing here was technically hard. But a few things became clearer to me while doing it.
+
+**The CostCenter tag matters more than it looks.** Finance teams ask for cost-by-department reports within the first three months of any cloud project. Without that tag on every resource from day one, the only way to produce that report is to go through every resource manually and classify it. Nobody has time for that.
+
+**The ManagedBy tag solves a real problem.** I added this one myself. It tells any operator whether a resource is safe to delete by hand or not. That question comes up constantly in real teams and there is usually no easy answer. This tag makes the answer visible immediately.
+
+**Writing the naming convention first feels slow.** It is not. The alternative is a six-month-old subscription full of resources nobody can identify. That takes far more time to clean up than writing a two-page spec at the start.
+
+---
