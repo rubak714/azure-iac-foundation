@@ -278,3 +278,50 @@ The `ManagedBy` tag is one I added myself. I have not seen it in any tutorial. B
 This first resource group gets `ManagedBy=Manual` because I am creating it by hand as a one-time bootstrap step. From Module 2 onwards, everything deployed via Bicep gets `ManagedBy=Bicep`.
 
 ---
+
+### 🟦 Step 4: Create the resource group
+
+```powershell
+$location = "germanywestcentral"
+$rgName   = "rg-shared-prod-gwc-001"
+$today    = Get-Date -Format "yyyy-MM-dd"
+$me       = az ad signed-in-user show --query userPrincipalName -o tsv
+
+az group create `
+  --name $rgName `
+  --location $location `
+  --tags `
+    CostCenter=IT-001 `
+    Environment=Production `
+    Workload=Shared `
+    Owner=cloud-team@hessler-logistik.de `
+    ManagedBy=Manual `
+    CreatedBy=$me `
+    CreatedDate=$today
+```
+
+Then I verified it two ways.
+
+**Via CLI:**
+
+```powershell
+az group show --name $rgName --query tags
+```
+
+![Resource group creation command output](screenshots/module01-rg-creation-09.png)
+*The az group create command running and returning the newly created resource group in JSON format.*
+
+![All seven tags confirmed via CLI](screenshots/module01-rg-tags-10.png)
+*All seven tags confirmed present via the CLI. Output is JSON showing each tag name and value.*
+
+**Via the Azure portal:**
+
+I opened portal.azure.com, navigated to the resource group, and clicked the Tags blade.
+
+![Resource group overview in Azure portal](screenshots/module01-rg-overview-portal-11.png)
+*Resource group overview showing rg-shared-prod-gwc-001 in Germany West Central with the correct subscription confirmed.*
+
+![Tags panel in Azure portal showing all seven tags](screenshots/module01-rg-tags-portal-12.png)
+*Tags panel in the Azure portal showing all seven tags. This is the screenshot that proves the work was done. A portal tags panel cannot be faked.*
+
+---
